@@ -16,7 +16,6 @@ class Controller
     I for item."
     self.fight
     puts "Congrats! E n d  o f  S e q u e n c e"
-
   end
 
   def getHealth
@@ -40,6 +39,5 @@ class Controller
       m.update
     end
   end
-
 end
 s = Controller.new

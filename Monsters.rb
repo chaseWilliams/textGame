@@ -29,8 +29,7 @@ class Zombie < Monsters
   def getZombieDead
     return @zombieDead
   end
-
-
+  
   def hit
     @health -= 10
   end
