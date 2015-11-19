@@ -28,6 +28,10 @@ class Controller
     while (!m.getZombieDead)
       puts "Fight!\n"
       @@input = gets.chomp
+      while (@@input != "F")
+      puts "Please enter something acceptable"
+      @@input = gets.chomp
+    end
       if (@@input == "F")
         m.hit
       end
