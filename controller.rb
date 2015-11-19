@@ -15,7 +15,7 @@ class Controller
     puts "Let's do a practice fight, #{@@usrName}\nPlease enter F for fight, D for defend, and
     I for item."
     self.fight
-    puts "Congrats! E n d  o f  S e q u e n c e"
+    puts "Congrats! \nE n d  o f  S e q u e n c e"
   end
 
   def getHealth
