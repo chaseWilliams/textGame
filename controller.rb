@@ -1,3 +1,5 @@
+#master script; the one that is executed.
+
 require './Monsters.rb'
 monster = Monsters.new
 class Controller
