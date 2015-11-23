@@ -1,5 +1,6 @@
 #script that manages all monster things
 
+
 class Monsters #kind of redundant right now, will add on
   @health
   @attack
@@ -18,8 +19,7 @@ class Zombie < Monsters
   end
 
   def bite
-    @@playerH -= 5 #nOTE need new way of accessing player health variable. doesn't play niec
-    #when set to require and access like i did from this file to controller.
+    $playerHealth = $playerHealth - 5
   end
 
   def health?
@@ -29,8 +29,8 @@ class Zombie < Monsters
   def getZombieDead
     return @zombieDead
   end
-  
+
   def hit
-    @health -= 10
+    @health = @health - $playerAttack
   end
 end

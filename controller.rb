@@ -1,27 +1,29 @@
 #master script; the one that is executed.
 
 require './Monsters.rb'
-monster = Monsters.new
+
+$playerHealth
+$playerAttack
+$playerLevel
+$playerDefense
+$playerName
+$playerItems
+
 class Controller
-  @@usrName
-  @@playerH
-  @@playerA
-  @@input
+  @input
+
   def initialize #start game sequence
-    @@playerA = 10
-    @@playerH = 200
+    $playerHealth = 200
+    $playerAttack = 10
+    $playerLevel = 1
+    $playerDefense = 0
+    $playerItems = {}
     puts "Hello, welcome to RPG Legends, by Chase Williams"
     puts "Please enter a name"
-    @@usrName = gets.chomp
-    puts @@usrName
-    puts "Let's do a practice fight, #{@@usrName}\nPlease enter F for fight, D for defend, and
-    I for item."
+    $playerName = gets.chomp
+    puts 'Let\'s do a practice fight, #{$playerName}\nPlease enter F for fight, or I to look at Items.'
     self.fight
     puts "Congrats! \nE n d  o f  S e q u e n c e"
-  end
-
-  def getHealth
-    return @@playerA
   end
 
   def fight #needs to be developed so that it can instantiate and initiate fight
@@ -29,16 +31,16 @@ class Controller
     m = Zombie.new
     while (!m.getZombieDead)
       puts "Fight!\n"
-      @@input = gets.chomp
-      while (@@input != "F")
+      @input = gets.chomp
+      while (@input != "F")
       puts "Please enter something acceptable"
-      @@input = gets.chomp
+      @input = gets.chomp
     end
-      if (@@input == "F")
+      if (@input == "F")
         m.hit
       end
       if (m.health? > 0)
-        #m.bite   => frustrating, can't get the two files to work, sharing data up(down?)stream
+        m.bite   #=> frustrating, can't get the two files to work, sharing data up(down?)stream
       else
         puts "You beat it!"
       end
