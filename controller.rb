@@ -3,6 +3,7 @@
 require './Monsters.rb'
 
 $playerHealth
+$playerMaxHealth
 $playerAttack
 $playerLevel
 $playerDefense
@@ -14,12 +15,13 @@ class Controller
   @input
 
   def initialize #start game sequence
-    $playerHealth = 200
+    $playerMaxHealth = 200
+    $playerHealth = 150
     $playerAttack = 10
     $playerLevel = 1
     $playerDefense = 0
     $playerItems = {
-      potion: [1, 20]
+      potion: [1, 50]
     }
     @itemCount = "#{$playerItems[:potion][0]} potions"
     puts "Hello, welcome to RPG Legends, by Chase Williams"
@@ -51,6 +53,11 @@ class Controller
         puts "You beat it!"
       end
       m.update
+    end
+  end
+  def healPlayer(value)
+    if value + $playerHealth <= $playerMaxHealth
+      $playerHealth += value
     end
   end
 end
