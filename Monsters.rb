@@ -22,6 +22,10 @@ class Zombie < Monsters
     $playerHealth = $playerHealth - 5
   end
 
+  def hitMessage
+    return "You got bitten! Health now at #{$playerHealth}"
+  end
+
   def health?
     return @health
   end
