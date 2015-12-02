@@ -2,17 +2,9 @@
 
 require './Monsters.rb'
 
-$playerHealth
-$playerMaxHealth
-$playerAttack
-$playerLevel
-$playerDefense
-$playerName
-$playerItems
-@itemCount
-
 class Controller
   @input
+  @itemCount
 
   def initialize #start game sequence
     $playerMaxHealth = 200
