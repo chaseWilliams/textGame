@@ -34,7 +34,7 @@ class Zombie < Monsters
     return @zombieDead
   end
 
-  def hit
-    @health = @health - $playerAttack
+  def hit(value)
+    @health = @health - value
   end
 end

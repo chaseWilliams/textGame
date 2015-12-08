@@ -44,7 +44,7 @@ class Controller
         #new input is needed
       if @input != 'F' && @input != 'I' then puts 'Invalid' end    #gatekeeper
       if (@input == "F")
-        m.hit
+        m.hit($playerAttack)
         turn_over = true
       elsif @input == 'I'
         puts "You have #{@itemCount}\nEnter 'Potion' to use. Otherwise, enter anything"
