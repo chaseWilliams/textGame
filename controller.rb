@@ -5,7 +5,6 @@ require './Monsters.rb'
 class Controller
   @input
   @itemCount
-
   def initialize #start game sequence
     $playerMaxHealth = 200
     $playerHealth = 150
@@ -40,7 +39,10 @@ class Controller
     turn_over = false
     replay = false
     while turn_over == false
-      if replay then @input = gets.chomp end    #checks to see if loop is running again, in that case
+      if replay
+        puts "Enter an Action"
+        @input = gets.chomp
+      end    #checks to see if loop is running again, in that case
         #new input is needed
       if @input != 'F' && @input != 'I' then puts 'Invalid' end    #gatekeeper
       if (@input == "F")
@@ -51,10 +53,11 @@ class Controller
         @input = gets.chomp
         if @input == 'Potion'
           self.healPlayer($playerItems[:potion][1])
+          $playerItems[:potion[1]] = 0
           turn_over = true
         else
           replay = true
-        end
+        end #a;sdlghasd;glkhasd;lhk
       end
     end
       if (m.health? > 0)
