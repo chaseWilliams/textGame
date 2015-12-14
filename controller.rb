@@ -21,14 +21,23 @@ class Controller
     puts "Please enter a name"
     $playerName = gets.chomp
     puts "Lets do a practice fight, #{$playerName}\nPlease enter F for fight, or I to look at Items."
-    self.fight
+    self.fight("Vampire")
     puts "Congrats! Finished with #{$playerHealth} out of #{$playerMaxHealth}\nE n d  o f  S e q u e n c e"
   end
 
-  def fight #needs to be developed so that it can instantiate and initiate fight
+  def fight(monsterToFight) #needs to be developed so that it can instantiate and initiate fight
     #with any monster, depending on parameter given. Right now only does 1 zombie
-    m = Zombie.new
-
+    case monsterToFight
+    when "Zombie"
+      m = Zombie.new
+    when "Vampire"
+      puts "not ready yet"
+      return nil
+    else
+      puts "error 503"
+      return nil
+    end
+    
     puts "#{$playerName}, your health is at #{$playerHealth} / #{$playerMaxHealth}"
     while (!m.getZombieDead)
       puts "Fight!\n"
