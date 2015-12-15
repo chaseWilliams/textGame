@@ -4,37 +4,42 @@
 class Monsters #kind of redundant right now, will add on
   @health
   @attack
-end
-
-class Zombie < Monsters
-  @zombieDead
-  def initialize
-    @health = 20
-    @attack = 2
-  end
-
+  @name
+  @isDead
+  @monsterHitMessage
+  
   def update
-    @zombieDead = (@health <= 0)
-    puts "Zombie health at: #{@health}"
+    @isDead = (@health <= 0)
+    puts "#{@name} health at: #{@health}"
   end
-
-  def bite
-    $playerHealth = $playerHealth - 5
+  
+  def phyAttack
+    $playerHealth -= 5
   end
-
+  
   def hitMessage
-    return "You got bitten! Health now at #{$playerHealth}"
+    return @monsterHitMessage + "#{$playerHealth}"
   end
-
+  
   def health?
     return @health
   end
-
-  def getZombieDead
-    return @zombieDead
+  
+  def monsterDead?
+    return @isDead
   end
-
+  
   def hit(value)
     @health = @health - value
+  end
+end
+
+class Zombie < Monsters
+  def initialize
+    @health = 20
+    @attack = 2
+    @monsterHitMessage = "You got bitten! Health now at "
+    @name = 'Zombie'
+    @isDead = false
   end
 end
