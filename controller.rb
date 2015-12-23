@@ -1,7 +1,5 @@
 #master script; the one that is executed.
-
 require './Monsters.rb'
-
 class Controller
   @input
   @itemCount
@@ -14,6 +12,7 @@ class Controller
     $playerItems = {
       #arguments are quantity, value
       potion: [1, 50]
+      firebomb: [1, 100]
     }
     @itemCount = $playerItems[:potion][0]
     puts "Hello, welcome to RPG Legends, by Chase Williams"
@@ -24,7 +23,6 @@ class Controller
     puts "Congrats! Finished with #{$playerHealth} out of #{$playerMaxHealth}\nLet's fight again!"
     self.fight('Vampire')
   end
-
   def fight(monsterToFight) #needs to be developed so that it can instantiate and initiate fight
     #with any monster, depending on parameter given.
     case monsterToFight
@@ -35,7 +33,6 @@ class Controller
     else
       puts "error 503"
     end
-
     puts "#{$playerName}, your health is at #{$playerHealth} / #{$playerMaxHealth}"
     while (!m.monsterDead)
       puts "Fight!\n"
@@ -46,7 +43,6 @@ class Controller
     end
     turn_over = false
     replay = false
-
     while !turn_over
       if $playerHealth > 0
         if replay
@@ -77,7 +73,6 @@ class Controller
               replay = true
             end
           end
-
         if (m.health > 0)
           m.phyAttack
           puts m.hitMessage
@@ -92,7 +87,6 @@ class Controller
     end
   end
 end
-
   #player methods
   def healPlayer(value)
     if value + $playerHealth <= $playerMaxHealth
@@ -101,11 +95,9 @@ end
       $playerHealth = $playerMaxHealth
     end
   end
-
   def itemUpdate
     @itemCount = $playerItems[:potion][0]
   end
 end
-
 #instantiates controller object; starts game
 s = Controller.new
